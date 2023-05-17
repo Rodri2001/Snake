@@ -35,3 +35,26 @@
   align-items: center;
   gap: 10px;
 }
+
+.control-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: #444;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4px 0 #000;
+  transition: transform 0.1s ease-in;
+  cursor: pointer;
+}
+
+.control-button:hover {
+  transform: translateY(2px);
+}
+
+.control-button:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
