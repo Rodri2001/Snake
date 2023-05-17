@@ -1,11 +1,37 @@
-#game-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  #gameCanvas {
-    border: 1px solid #000;
-  }
-  
+#arcade-machine {
+  background-color: black;
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 10px solid #888;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#screen {
+  background-color: #000;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#gameCanvas {
+  border: 2px solid #fff;
+  background-color: #111;
+  width: 80%;
+  height: 80%;
+}
+
+#controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
