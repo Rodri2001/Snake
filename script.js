@@ -3,6 +3,7 @@ const canvasSize = 400;
 const scale = 20;
 const rows = canvasSize / scale;
 const columns = canvasSize / scale;
+let score = 0
 
 // Crear el canvas
 const canvas = document.getElementById('gameCanvas');
@@ -56,6 +57,8 @@ function draw() {
     // Dibujar la comida
     context.fillStyle = '#f00';
     context.fillRect(food.x, food.y, scale, scale);
+    // Mostrar el puntaje
+    displayScore();
 }
 
 // Función para mover la serpiente
@@ -80,6 +83,7 @@ function move() {
     // Comprobar si la serpiente ha comido la comida
     if (head.x === food.x && head.y === food.y) {
         // Generar nueva comida de forma aleatoria
+        score++
         food = {
             x: Math.floor(Math.random() * rows) * scale,
             y: Math.floor(Math.random() * columns) * scale
@@ -123,6 +127,7 @@ function checkCollision() {
             x: Math.floor(Math.random() * rows) * scale,
             y: Math.floor(Math.random() * columns) * scale
         };
+        score = 0
     }
 
     // Colisión con el cuerpo de la serpiente
@@ -142,6 +147,14 @@ function checkCollision() {
         }
     }
 }
+
+// Función para mostrar el puntaje en la pantalla
+function displayScore() {
+    context.fillStyle = '#000';
+    context.font = '20px Arial';
+    context.fillText('Score: ' + score, 10, 30);
+}
+
 
 // Iniciar el juego
 game();
