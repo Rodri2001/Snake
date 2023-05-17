@@ -11,6 +11,7 @@ const context = canvas.getContext('2d');
 canvas.width = canvasSize;
 canvas.height = canvasSize;
 
+
 // Crear la serpiente
 let snake = [];
 snake[0] = {
@@ -31,6 +32,8 @@ let food = {
 document.addEventListener('keydown', directionControl);
 
 function directionControl(event) {
+
+
     if (event.keyCode === 37 && direction !== 'RIGHT') {
         direction = 'LEFT';
     } else if (event.keyCode === 38 && direction !== 'DOWN') {
@@ -61,7 +64,63 @@ function draw() {
     displayScore();
 }
 
-// Función para mover la serpiente
+function changeDirection(direction) {
+    // Aquí deberías tener una variable que almacene la dirección actual de la serpiente
+    let currentDirection = '';
+
+    // Obtener referencias a los botones de control
+    const upButton = document.getElementById('upButton');
+    const downButton = document.getElementById('downButton');
+    const leftButton = document.getElementById('leftButton');
+    const rightButton = document.getElementById('rightButton');
+
+    // Asignar eventos de clic a los botones de control
+    upButton.addEventListener('click', () => {
+        changeDirection('up');
+    });
+    downButton.addEventListener('click', () => {
+        changeDirection('down');
+    });
+    leftButton.addEventListener('click', () => {
+        changeDirection('left');
+    });
+    rightButton.addEventListener('click', () => {
+        changeDirection('right');
+    });
+    // Actualizar la dirección según el botón de control presionado
+    switch (direction) {
+        case 'up':
+            if (currentDirection !== 'down') {
+                currentDirection = 'up';
+            }
+            break;
+        case 'down':
+            if (currentDirection !== 'up') {
+                currentDirection = 'down';
+            }
+            break;
+        case 'left':
+            if (currentDirection !== 'right') {
+                currentDirection = 'left';
+            }
+            break;
+        case 'right':
+            if (currentDirection !== 'left') {
+                currentDirection = 'right';
+            }
+            break;
+        default:
+            break;
+
+    }
+
+    // Aquí deberías tener la lógica para aplicar la nueva dirección a la serpiente
+    // Por ejemplo, puedes llamar a una función que actualice la dirección de la serpiente en tu juego Snake
+    directionControl(currentDirection);
+}
+
+
+
 // Función para mover la serpiente
 function move() {
     let head = { x: snake[0].x, y: snake[0].y };
