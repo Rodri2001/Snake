@@ -53,7 +53,7 @@ function draw() {
 
     // Dibujar la serpiente
     for (let i = 0; i < snake.length; i++) {
-        context.fillStyle = '#000';
+        context.fillStyle = '#06de18';
         context.fillRect(snake[i].x, snake[i].y, scale, scale);
     }
 
