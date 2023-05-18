@@ -194,6 +194,7 @@ function checkCollision() {
         if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
             // Reiniciar el juego si hay colisión con el cuerpo de la serpiente
             snake = [];
+            score = 0
             snake[0] = {
                 x: Math.floor(rows / 2) * scale,
                 y: Math.floor(columns / 2) * scale
