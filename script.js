@@ -65,7 +65,7 @@ function draw() {
 }
 
 function changeDirection(direction) {
-    // Aquí deberías tener una variable que almacene la dirección actual de la serpiente
+    //variable que almacena la dirección actual de la serpiente
     let currentDirection = '';
 
     // Obtener referencias a los botones de control
@@ -74,7 +74,7 @@ function changeDirection(direction) {
     const leftButton = document.getElementById('leftButton');
     const rightButton = document.getElementById('rightButton');
 
-    // Asignar eventos de clic a los botones de control
+    // esta parte del codigo deberia mover la snake con los botones que no agrege 
     upButton.addEventListener('click', () => {
         changeDirection('up');
     });
@@ -114,8 +114,6 @@ function changeDirection(direction) {
 
     }
 
-    // Aquí deberías tener la lógica para aplicar la nueva dirección a la serpiente
-    // Por ejemplo, puedes llamar a una función que actualice la dirección de la serpiente en tu juego Snake
     directionControl(currentDirection);
 }
 
@@ -141,8 +139,9 @@ function move() {
 
     // Comprobar si la serpiente ha comido la comida
     if (head.x === food.x && head.y === food.y) {
-        // Generar nueva comida de forma aleatoria
+        // Sumar 1 punto por comida digerida 
         score++
+        // Generar nueva comida de forma aleatoria
         food = {
             x: Math.floor(Math.random() * rows) * scale,
             y: Math.floor(Math.random() * columns) * scale
@@ -186,6 +185,7 @@ function checkCollision() {
             x: Math.floor(Math.random() * rows) * scale,
             y: Math.floor(Math.random() * columns) * scale
         };
+        // Resetear el score por muerte
         score = 0
     }
 
@@ -194,6 +194,7 @@ function checkCollision() {
         if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
             // Reiniciar el juego si hay colisión con el cuerpo de la serpiente
             snake = [];
+            // Resetear el score por muerte
             score = 0
             snake[0] = {
                 x: Math.floor(rows / 2) * scale,
